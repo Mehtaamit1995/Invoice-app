@@ -1,10 +1,9 @@
 import { Injectable , NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { InvoiceEntity } from '../model/invoice.entity';
-import {Invoice } from '../model/invoice.interface';
+import { Invoice } from '../model/invoice.interface';
 import { Repository } from 'typeorm';
 import { CustomerService } from '../../customer/service/customer.service';
-import { Customer } from 'src/customer/model/customer.interface';
 
 
 @Injectable()
@@ -55,7 +54,7 @@ export class InvoiceService {
         const result = await this.invoiceRepository.delete(id);
         
         if(result.affected === 0) {
-            throw new NotFoundException(`Task with ID "${id}" not found`)
+            throw new NotFoundException(`Invoice with ID "${id}" not found`)
         }
     }
 
